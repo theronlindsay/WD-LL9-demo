@@ -2,6 +2,7 @@
 // 🎵 Setlist Generator
 // ----------------------------
 
+//const cannot be changed later
 const songs = [
     "No Body European Tour Intro",
     "A Marrow Escape",
@@ -68,27 +69,79 @@ const songs = [
     <button id="vote">Vote</button>
     <div id="voteCount">Votes: 0</div>
   `;
-  
-  document.getElementById("vote").addEventListener("click", () => {
+    document.getElementById("vote").addEventListener("click", () => {
     // Add your code here
   });
   
   // 3️⃣ Tour Date Spotlight
   document.getElementById("tourHighlight").innerHTML = `
     <h3>Tour Date Spotlight</h3>
-    <ul>
-    <li id="cityOslo">Oslo</li>
-    <li id="cityBerlin">Berlin</li>
-    <li id="cityLondon">London</li>
-    </ul>
+    <div class="tour-cities-container">
+      <div class="city-card" id="cityOslo">Oslo</div> 
+      <div class="city-card" id="cityBerlin">Berlin</div>
+      <div class="city-card" id="cityLondon">London</div>
+    </div>
+    <div id="tourDetails" class="hidden"></div>
   `;
-
-  // Sample event listener for one city
+  // Event listener for Oslo - shows/hides date and venue info when clicked
   document.getElementById("cityOslo").addEventListener("click", () => {
-    // Add your code here
+    const tourDetails = document.getElementById("tourDetails");
+    
+    // Check if Oslo details are already showing
+    if (tourDetails.innerHTML.includes("Oslo, Norway") && !tourDetails.classList.contains("hidden")) {
+      // Hide the details if Oslo is already selected
+      tourDetails.classList.add("hidden");
+    } else {
+      // Show Oslo details
+      tourDetails.classList.remove("hidden");
+      tourDetails.innerHTML = `
+        <p><strong>Oslo, Norway</strong></p>
+        <p>📅 Date: August 8th, 2025</p>
+        <p>🕘 Time: 9:15 PM</p>
+        <p>🏟️ Venue: Oslo Spektrum</p>
+      `;
+    }
   });
   
-  // Students will need to add one for each remaining city (Berlin and London)
+  // Event listener for Berlin - shows/hides date and venue info when clicked
+  document.getElementById("cityBerlin").addEventListener("click", () => {
+    const tourDetails = document.getElementById("tourDetails");
+    
+    // Check if Berlin details are already showing
+    if (tourDetails.innerHTML.includes("Berlin, Germany") && !tourDetails.classList.contains("hidden")) {
+      // Hide the details if Berlin is already selected
+      tourDetails.classList.add("hidden");
+    } else {
+      // Show Berlin details
+      tourDetails.classList.remove("hidden");
+      tourDetails.innerHTML = `
+        <p><strong>Berlin, Germany</strong></p>
+        <p>📅 Date: August 15th, 2025</p>
+        <p>🕘 Time: 8:30 PM</p>
+        <p>🏟️ Venue: Mercedes-Benz Arena</p>
+      `;
+    }
+  });
+  
+  // Event listener for London - shows/hides date and venue info when clicked
+  document.getElementById("cityLondon").addEventListener("click", () => {
+    const tourDetails = document.getElementById("tourDetails");
+    
+    // Check if London details are already showing
+    if (tourDetails.innerHTML.includes("London, UK") && !tourDetails.classList.contains("hidden")) {
+      // Hide the details if London is already selected
+      tourDetails.classList.add("hidden");
+    } else {
+      // Show London details
+      tourDetails.classList.remove("hidden");
+      tourDetails.innerHTML = `
+        <p><strong>London, UK</strong></p>
+        <p>📅 Date: August 22nd, 2025</p>
+        <p>🕘 Time: 7:45 PM</p>
+        <p>🏟️ Venue: The O2 Arena</p>
+      `;
+    }
+  });
   
   // 4️⃣ On the Road Again
   document.getElementById("nextTourStop").innerHTML = `
