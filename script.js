@@ -72,8 +72,7 @@ const songs = [
     document.getElementById("vote").addEventListener("click", () => {
     // Add your code here
   });
-  
-  // 3️⃣ Tour Date Spotlight
+    // 3️⃣ Tour Date Spotlight
   document.getElementById("tourHighlight").innerHTML = `
     <h3>Tour Date Spotlight</h3>
     <div class="tour-cities-container">
@@ -81,11 +80,10 @@ const songs = [
       <div class="city-card" id="cityBerlin">Berlin</div>
       <div class="city-card" id="cityLondon">London</div>
     </div>
-    <div id="tourDetails" class="hidden"></div>
-  `;
-  // Event listener for Oslo - shows/hides date and venue info when clicked
+    <div class="tourDetails hidden"></div>
+  `;  // Event listener for Oslo - shows/hides date and venue info when clicked
   document.getElementById("cityOslo").addEventListener("click", () => {
-    const tourDetails = document.getElementById("tourDetails");
+    const tourDetails = document.getElementsByClassName("tourDetails")[0];
     
     // Check if Oslo details are already showing
     if (tourDetails.innerHTML.includes("Oslo, Norway") && !tourDetails.classList.contains("hidden")) {
@@ -102,10 +100,9 @@ const songs = [
       `;
     }
   });
-  
-  // Event listener for Berlin - shows/hides date and venue info when clicked
+    // Event listener for Berlin - shows/hides date and venue info when clicked
   document.getElementById("cityBerlin").addEventListener("click", () => {
-    const tourDetails = document.getElementById("tourDetails");
+    const tourDetails = document.getElementsByClassName("tourDetails")[0];
     
     // Check if Berlin details are already showing
     if (tourDetails.innerHTML.includes("Berlin, Germany") && !tourDetails.classList.contains("hidden")) {
@@ -125,7 +122,7 @@ const songs = [
   
   // Event listener for London - shows/hides date and venue info when clicked
   document.getElementById("cityLondon").addEventListener("click", () => {
-    const tourDetails = document.getElementById("tourDetails");
+    const tourDetails = document.getElementsByClassName("tourDetails")[0];
     
     // Check if London details are already showing
     if (tourDetails.innerHTML.includes("London, UK") && !tourDetails.classList.contains("hidden")) {
